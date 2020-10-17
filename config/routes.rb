@@ -15,4 +15,6 @@ devise_for :costomers, controllers: {
   get 'admins/:id/top' => 'admins#top', as: :admins_top
   get 'costomers/:id/top' => 'costomers#top', as: :costomers_top
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # 商品のルーティング
+  resources :items
 end
