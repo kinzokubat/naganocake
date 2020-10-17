@@ -9,6 +9,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header class="navbar navbar-inverse">
+  <div class="container">
+    <nav class="nav navbar-nav navbar-left">
+      <p class="navbar-text">Naganocake</p>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+          <% if costomer_signed_in? %>
+            <div><h6>costomerログイン中</h6></div>
+          <% else %>
+            <div><h6>costomerログアウト中</h6></div>
+          <% end %>
+          <% if admin_signed_in? %>
+            <div><h6>adminログイン中</h6></div>
+          <% else %>
+            <div><h6>adminログイン中</h6></div>
+          <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>
+
   <body>
     <%= yield %>
   </body>
