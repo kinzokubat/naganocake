@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+
+
   # ログイン後の画面
   def after_sign_in_path_for(resource)
     case resource
