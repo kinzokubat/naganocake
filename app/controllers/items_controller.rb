@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  
+  # 管理者の部分
   def index
     @items = Item.all
   end
@@ -18,14 +20,26 @@ class ItemsController < ApplicationController
   end 
 
   def edit
+    @item = Item.find(params[:id])
   end
-
-  def destroy
-  end
+  
+  def update 
+    item = Item.find(params[:id])
+    item.update(item_params)
+    redirect_to item_path(item.id)
+  end 
+  
+  # 会員の部分
+  
+  def costomer_index 
+    @items = Item.all
+  end 
+  
+  
 
   private
   def item_params
-    params.require(:item).permit(:name, :introduction, :price)
+    params.require(:item).permit(:name, :introduction, :price, :is_active)
   end
 
 end

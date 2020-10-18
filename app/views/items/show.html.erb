@@ -1,17 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h1>商品詳細</h1>
+    <h1>商品詳細</h1>
+    <div class="col-xs-10 col-xs-offset-2">
       <h2>商品名</h2>
       <p><%= @item.name %></p>
       <h2>商品説明</h2>
       <p><%= @item.introduction %></p>
       <h2>ジャンル</h2>
-      <p>ケーキ</p>
-      <h2>税抜価格</h2>
-      <p><%= @item.price %>円</p>
+      <p><%= @item.genre_id %></p>
+      <h2>税込価格(税抜価格)</h2>
+      <p><%= (@item.price * 1.1.round(2)).round %>(<%= @item.price %>)円</p>
       <h2>販売ステータス</h2>
-      <p>販売中</p>
+      <% if @item.is_active == true %>
+        <p>販売中</p>
+      <% else %>
+        <p>売り切れ</p>
+      <% end %>
+    </div>
+    <div class="col-xs-12 col-xs-offset-10">
+      <%= link_to "編集する", edit_item_path(@item.id), class: "btn btn-info active" %>
+      <%= link_to "一覧へ", items_path, class: "btn btn-info active" %>
     </div>
   </div>
 </div>
+

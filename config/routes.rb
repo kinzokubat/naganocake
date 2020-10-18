@@ -19,4 +19,6 @@ devise_for :costomers, controllers: {
   # 商品のルーティング
   resources :items
 
+  # 会員の一覧ページのルーティング
+  get "costomer_index" => "items#costomer_index"
 end
