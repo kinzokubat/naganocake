@@ -17,4 +17,7 @@ devise_for :costomers, controllers: {
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # 商品のルーティング
   resources :items
+  
+  # 会員の一覧ページのルーティング
+  get "costomer_index" => "items#costomer_index"
 end

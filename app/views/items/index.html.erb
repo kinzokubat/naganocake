@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <table class="table">
-        <h1>商品一覧</h1>
+        <h1>商品一覧</h1><br></br>
         <thaed>
          <tr>
            <th>商品ID</th>
@@ -17,9 +17,15 @@
             <tr>
               <td><%= item.id %></td>
               <td><%= link_to item.name, item_path(item)%></td>
-              <td><%= item.price %></td>
-              <td></td>
-              <td></td>
+              <td><%= item.price %>円</td>
+              <td><%= item.genre_id %>ケーキ</td>
+              <td>
+                <% if item.is_active == true %>
+                  <p>販売中</p>
+                <% else %>
+                  <p>売り切れ</p>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
