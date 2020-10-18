@@ -1,0 +1,6 @@
+<h3>編集画面</h3>
+<%= form_for(@genre) do |f| %>
+  <%= f.label :ジャンル %>
+  <%= f.text_field :name, class: "name" %>
+  <%= f.submit '変更を保存する' %>
+<% end %>
