@@ -35,9 +35,20 @@ class ItemsController < ApplicationController
   def costomer_index
     @items = Item.all
   end
+
   
   def costomer_show
     @item = Item.find(params[:id])
+  end
+
+
+
+  def costomer_top
+    @item = Item.first(4)
+    @genres =Genre.all
+  end
+
+  def costomer_about
   end
 
 
@@ -46,5 +57,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :introduction, :price, :is_active, :genre_id)
   end
+
+
 
 end
