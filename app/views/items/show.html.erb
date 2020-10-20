@@ -7,7 +7,7 @@
       <h2>商品説明</h2>
       <p><%= @item.introduction %></p>
       <h2>ジャンル</h2>
-      <p><%= @item.genre_id %></p>
+      <p><%= @item.genre.name %></p>
       <h2>税込価格(税抜価格)</h2>
       <p><%= (@item.price * 1.1.round(2)).round %>(<%= @item.price %>)円</p>
       <h2>販売ステータス</h2>

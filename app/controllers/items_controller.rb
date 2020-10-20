@@ -29,11 +29,19 @@ class ItemsController < ApplicationController
     redirect_to item_path(item.id)
   end
 
+
   # 会員の部分
 
   def costomer_index
     @items = Item.all
   end
+
+  
+  def costomer_show
+    @item = Item.find(params[:id])
+  end
+
+
 
   def costomer_top
     @item = Item.first(4)
@@ -44,9 +52,10 @@ class ItemsController < ApplicationController
   end
 
 
+
   private
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :is_active)
+    params.require(:item).permit(:name, :introduction, :price, :is_active, :genre_id)
   end
 
 

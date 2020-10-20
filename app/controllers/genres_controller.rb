@@ -8,7 +8,7 @@ class GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to genres_path(@genre)
+      redirect_to genres_path
     else
       @genres = Genre.all
       render 'index'
