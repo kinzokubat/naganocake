@@ -24,4 +24,6 @@ devise_for :costomers, controllers: {
 
   # 会員の一覧ページのルーティング
   get "costomer_index" => "items#costomer_index"
+  get "costomer_top" => "items#costomer_top"
+  get "costomer_about" => "items#costomer_about"
 end
