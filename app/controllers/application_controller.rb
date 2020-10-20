@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   # # ログアウト後の画面
-  # def after_sign_out_path_for(resource)
+  # def after_sign_out_path_for(resource_or_scope)
   #   case resource
   #   when Admin
   #     new_admin_session_path

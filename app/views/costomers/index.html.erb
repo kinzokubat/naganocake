@@ -7,7 +7,7 @@
     <tr>
       <th>会員ID</th>
       <th>氏名</th>
-      <th>メールアドレス</th></th>
+      <th>メールアドレス</th>
       <th>ステータス</th>
       <th colspan="3"></th>
     </tr>
@@ -15,10 +15,15 @@
   <tbody>
     <% @costomers.each do |costomer| %>
       <tr>
-        <td><%=link_to costomer.id, admin_costomers_show_path(costomer.id) %></td>
-        <td><%= costomer.first_name %></td>
+        <td><%= costomer.id %></td>
+        <td><%=link_to costomer.full_name, admin_costomers_show_path(costomer.id)%></td>
         <td><%= costomer.email %></td>
-        <!--<td><= costomer.is_delete %></td>-->
+        <td><% if costomer.is_deleted == true %>
+        <p>有効会員</p>
+        <% else %>
+        <p>退会済み</p>
+        <% end %>
+        </td>
       </tr>
      <% end %>
   </tbody>
