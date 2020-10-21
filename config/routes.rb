@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :genres, only: [:index, :create, :edit, :update]
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  
   devise_for :admins, controllers: {
   sessions:      'admins/sessions',
   passwords:     'admins/passwords',
@@ -19,12 +20,23 @@ devise_for :costomers, controllers: {
   get 'admin/costomers/:id' => 'costomers#show', as: :admin_costomers_show
   get 'admin/costomers/:id/edit' => 'costomers#edit', as: :admin_costomers_edit
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # 商品のルーティング
-  resources :items
 
-  # 会員の一覧ページのルーティング
-  get "costomer_index" => "items#costomer_index"
-  get "costomer_top" => "items#costomer_top"
-  get "costomer_about" => "items#costomer_about"
+
+  # 管理者のネームスペース
+  # 管理者しかいけないURL
+  namespace :admin do
+    resources :items
+    resources :genres
+  end
+
+
+
+  # 会員のモジュール
+  # 会員しかいけないURL
+  scope module: :public do
+    resources :items
+    get "/item/top", :to => "items#top"
+    get "/item/about", :to => "items#about"
+  end
+  
 end
