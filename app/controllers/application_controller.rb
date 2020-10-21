@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-
+  
+  
 
 
   # ログイン後の画面
