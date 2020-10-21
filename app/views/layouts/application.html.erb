@@ -9,29 +9,57 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <header class="navbar navbar-inverse">
-  <div class="container">
-    <nav class="nav navbar-nav navbar-left">
-      <p class="navbar-text">Naganocake</p>
-    </nav>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-          <% if costomer_signed_in? %>
-            <div><h6>costomerログイン中</h6></div>
-          <% else %>
-            <div>costomerログアウト中</div>
-          <% end %>
-          <% if admin_signed_in? %>
-            <div><h6>adminログイン中</h6></div>
-          <% else %>
-            <div>adminログアウト中</div>
-          <% end %>
-      </ul>
-    </nav>
-  </div>
-</header>
+<!--一旦、コメントアウト中-->
+<!--  <header class="navbar navbar-inverse">-->
+<!--  <div class="container">-->
+<!--    <nav class="nav navbar-nav navbar-left">-->
+<!--      <p class="navbar-text">Naganocake</p>-->
+<!--    </nav>-->
+<!--    <nav>-->
+<!--      <ul class="nav navbar-nav navbar-right">-->
+<!--          <% if costomer_signed_in? %>-->
+<!--            <div><h6>costomerログイン中</h6></div>-->
+<!--          <% else %>-->
+<!--            <div>costomerログアウト中</div>-->
+<!--          <% end %>-->
+<!--          <% if admin_signed_in? %>-->
+<!--            <div><h6>adminログイン中</h6></div>-->
+<!--          <% else %>-->
+<!--            <div>adminログアウト中</div>-->
+<!--          <% end %>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<!--  </div>-->
+<!--</header>-->
 
+<header class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <div style="color: #fff;">
+              <span>ナガノケーキ</span>
+          </div>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+              <li><%= link_to "管理者→" %></li>
+              <li><%= link_to "商品一覧", admin_items_path %></li>
+              <li><%= link_to "商品投稿", new_admin_item_path %></li>
+              <li><%= link_to "ジャンル一覧", admin_genres_path %></li>
+              <li><%= link_to "お客→" %></li>
+              <li><%= link_to "トップ", item_top_path %></li>
+              <li><%= link_to "商品一覧", items_path %></li>
+              <li><%= link_to "新規登録", new_costomer_registration_path %></li>
+              <li><%= link_to "ログイン", new_costomer_session_path %></li>
+              <li><%= link_to "About", item_about_path %></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+<div style="margin-top: 51px;">
   <body>
     <%= yield %>
   </body>
+</div>
+
 </html>

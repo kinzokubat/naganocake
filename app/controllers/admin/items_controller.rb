@@ -1,6 +1,6 @@
-class ItemsController < ApplicationController
-
-  # 管理者の部分
+class Admin::ItemsController < ApplicationController
+  # 管理者の商品コントローラ
+  
   def index
     @items = Item.all
   end
@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
   def create
     item = Item.new(item_params)
     item.save
-    redirect_to items_path
+    redirect_to admin_items_path
   end
 
   def show
@@ -26,31 +26,8 @@ class ItemsController < ApplicationController
   def update
     item = Item.find(params[:id])
     item.update(item_params)
-    redirect_to item_path(item.id)
+    redirect_to admin_item_path(item.id)
   end
-
-
-  # 会員の部分
-
-  def costomer_index
-    @items = Item.all
-  end
-
-  
-  def costomer_show
-    @item = Item.find(params[:id])
-  end
-
-
-
-  def costomer_top
-    @item = Item.first(4)
-    @genres =Genre.all
-  end
-
-  def costomer_about
-  end
-
 
 
   private
