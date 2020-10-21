@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  update_at: 2020-10-17 08:21:48
+  created_at: 2020-10-17 08:21:48
+  is_active: false
+
+two:
+  name: MyString
+  update_at: 2020-10-17 08:21:48
+  created_at: 2020-10-17 08:21:48
+  is_active: false
