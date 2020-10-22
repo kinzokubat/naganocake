@@ -20,10 +20,6 @@ devise_for :costomers, controllers: {
   get 'admin/costomers/:id' => 'costomers#show', as: :admin_costomers_show
   get 'admin/costomers/:id/edit' => 'costomers#edit', as: :admin_costomers_edit
 
-  # カート機能
-    post "cartitems/create" => 'cart_items#create' # カート機能
-    get "items/cart_items" => 'cart_items#index', as: :cart_items_index # カート機能
-
   # 管理者のネームスペース
   # 管理者しかいけないURL
   namespace :admin do
@@ -37,6 +33,8 @@ devise_for :costomers, controllers: {
     resources :items
     get "/item/top", :to => "items#top"
     get "/item/about", :to => "items#about"
+    
+    resources :cart_items # カート機能
 
   end
 

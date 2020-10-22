@@ -1,4 +1,4 @@
-class CartItemsController < ApplicationController
+class Public::CartItemsController < ApplicationController
 
  def new
     # Viewへ渡すためのインスタンス変数に空のモデルオブジェクトを生成する。
@@ -10,7 +10,7 @@ class CartItemsController < ApplicationController
     # cart_item.admin.id = current.admin.id
     # @cart_item = Item.find(params[:item_id])
     @cart_item.save
-    redirect_to  cart_items_index_path
+    redirect_to  cart_items_path
  end
 
 
