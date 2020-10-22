@@ -1,7 +1,12 @@
 <div class="container">
 <div class="row">
 <div class="col-xs-12">
-<h2>ショッピングカート</h2>
+  <div class="col-xs-12 col-xs-offset-1">
+    <h2>ショッピングカート</h2>
+  </div>
+  <div class="col-xs-12 col-xs-offset-10">
+    <%= link_to 'カートを空にする' %>
+  </div>
   <table class='table'>
   <thead>
     <tr>
@@ -9,7 +14,7 @@
       <th>単価（税込）</th>
       <th>数量</th>
       <th>小計</th>
-      <th>削除ボタン</th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -25,6 +30,17 @@
      <% end %>
   </tbody>
 </table>
+<div class="col-xs-12 col-xs-offset-1">
+  <%= link_to "買い物を続ける", items_path, class: "btn btn-info active" %>
+</div>
+<div class="col-xs-12 col-xs-offset-8">
+  <h2>合計金額</h2>
+</div>
+<div class="col-xs-12 col-xs-offset-6">
+  <%= link_to "情報入力に進む" %>
+</div>
+
+
 </div>
 </div>
 </div>
