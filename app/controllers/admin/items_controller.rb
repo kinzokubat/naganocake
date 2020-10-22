@@ -1,6 +1,6 @@
 class Admin::ItemsController < ApplicationController
   # 管理者の商品コントローラ
-  
+
   def index
     @items = Item.all
   end
@@ -17,6 +17,7 @@ class Admin::ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @cart_item = CartItem.new
   end
 
   def edit
