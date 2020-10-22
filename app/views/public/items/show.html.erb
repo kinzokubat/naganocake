@@ -22,8 +22,16 @@
       </div>
       </div>
     <div class="col-xs-12 col-xs-offset-6">
-      <%= link_to "個数選択", class: "btn btn-info active" %>
-      <%= link_to "カートに入れる", class: "btn btn-info active" %>
+      <!--カート機能のform-->
+      <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
+      <h4>会員id</h4>
+      <%= f.text_field :costomer_id %>
+      <h4>商品id</h4>
+      <%= f.text_field :item_id %>
+      <h4>数量</h4>
+      <%= f.text_field :amount %>
+      <%= f.submit 'カートに入れる' %>
+      <% end %>
     </div>
   </div>
 </div>
