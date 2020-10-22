@@ -31,15 +31,14 @@ devise_for :costomers, controllers: {
   # 会員しかいけないURL
   scope module: :public do
     resources :items
-    get "/item/top", :to => "items#top"
+    root  :to => "items#top"
     get "/item/about", :to => "items#about"
 
-
-    resources :addresses
-
-
+    resources :addresses # アドレス機能
     resources :cart_items # カート機能
-
   end
+  
+  
+  
 
 end
