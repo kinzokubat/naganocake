@@ -33,7 +33,8 @@ devise_for :costomers, controllers: {
     resources :items
     get "/item/top", :to => "items#top"
     get "/item/about", :to => "items#about"
-    
+    resources :addresses
+
     resources :cart_items # カート機能
 
   end
