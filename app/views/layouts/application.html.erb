@@ -9,30 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-<!--一旦、コメントアウト中-->
-<!--  <header class="navbar navbar-inverse">-->
-<!--  <div class="container">-->
-<!--    <nav class="nav navbar-nav navbar-left">-->
-<!--      <p class="navbar-text">Naganocake</p>-->
-<!--    </nav>-->
-<!--    <nav>-->
-<!--      <ul class="nav navbar-nav navbar-right">-->
-<!--          <% if costomer_signed_in? %>-->
-<!--            <div><h6>costomerログイン中</h6></div>-->
-<!--          <% else %>-->
-<!--            <div>costomerログアウト中</div>-->
-<!--          <% end %>-->
-<!--          <% if admin_signed_in? %>-->
-<!--            <div><h6>adminログイン中</h6></div>-->
-<!--          <% else %>-->
-<!--            <div>adminログアウト中</div>-->
-<!--          <% end %>-->
-<!--      </ul>-->
-<!--    </nav>-->
-<!--  </div>-->
-<!--</header>-->
-
-<header class="navbar navbar-fixed-top navbar-inverse">
+    <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="container">
         <nav class="nav navbar-nav navbar-left">
           <div style="color: #fff;">
@@ -42,28 +19,31 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if costomer_signed_in? %>
-              <li>ようこそ<%= current_costomer.full_name %>さん</li>
-              <li><%= link_to "マイページ", items_path %></li>
-              <li><%= link_to "商品一覧", items_path %></li>
-              <li><%= link_to "カート", items_path %></li>
-              <li><%= link_to "ログアウト", destroy_costomer_session_path, method: :delete %></li>
+              <li style="color: #fff;" >ようこそ<%= current_costomer.full_name %>さん　　　　　　</li>
+              <li><%= link_to "マイページ", costomer_path(current_costomer.id), class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "商品一覧", items_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "カート", cart_items_path, class:"btn btn-default btn-sm"	 %></li>
+              <li><%= link_to "ログアウト", destroy_costomer_session_path, method: :delete, class:"btn btn-default btn-sm" %></li>
             <% elsif admin_signed_in? %>
-              <li><%= link_to "商品一覧", admin_items_path %></li>
-              <li><%= link_to "会員一覧", admin_items_path  %></li>
-              <li><%= link_to "注文履歴一覧", admin_items_path %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+              <li style="color: #fff;" >おいでやす、管理人さん　　　　　</li>
+              <li><%= link_to "トップ", admin_top_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "商品一覧", admin_items_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "会員一覧", admin_costomers_path, class:"btn btn-default btn-sm"  %></li>
+              <li><%= link_to "注文履歴一覧", admin_items_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "ジャンル一覧", admin_genres_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-default btn-sm" %></li>
             <% else %>
-              <li><%= link_to "about", item_about_path %></li>
-              <li><%= link_to "商品一覧", items_path %></li>
-              <li><%= link_to "新規登録", new_costomer_registration_path  %></li>
-              <li><%= link_to "ログイン", new_costomer_session_path %></li>
+              <li><%= link_to "About", item_about_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "商品一覧", items_path, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "新規登録", new_costomer_registration_path, class:"btn btn-default btn-sm"  %></li>
+              <li><%= link_to "ログイン", new_costomer_session_path, class:"btn btn-default btn-sm" %></li>
             <% end %>
           </ul>
         </nav>
       </div>
     </header>
 
-<div style="margin-top: 51px;">
+<div style="margin-top: 60px;">
   <body>
     <%= yield %>
   </body>
