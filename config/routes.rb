@@ -33,6 +33,7 @@ devise_for :costomers, controllers: {
     resources :costomers
     get "/unsubscribe", :to => "costomers#unsubscribe"
     resources :orders
+    
   end
 
 end

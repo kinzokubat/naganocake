@@ -1,7 +1,7 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
-    @addresses = current_costomer.addresses
+    @addresses = current_costomer.address
     pp  '================='
     pp @addresses
     @costomer = current_costomer
@@ -14,5 +14,17 @@ class Public::OrdersController < ApplicationController
     @genre.save
       redirect_to orders_path
   end
+  
+  def index 
+  end
+  
+  def comfirm 
+  end 
+  
+  def complete 
+  end 
+  
+  def show 
+  end 
   
 end
