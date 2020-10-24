@@ -12,16 +12,6 @@ devise_for :costomers, controllers: {
   registrations: 'costomers/registrations'
 }
 
-
-  # resources :admins
-  # resources :costomers
-
-  # get 'admins/:id/top' => 'admins#top', as: :admins_top
-  # get 'costomers/:id/top' => 'costomers#top', as: :costomers_top
-  # get 'admin/costomers' => 'costomers#index', as: :admin_costomers_index
-  # get 'admin/costomers/:id' => 'costomers#show', as: :admin_costomers_show
-  # get 'admin/costomers/:id/edit' => 'costomers#edit', as: :admin_costomers_edit
-
   # 管理者のネームスペース
   # 管理者しかいけないURL
   namespace :admin do
@@ -42,6 +32,7 @@ devise_for :costomers, controllers: {
     delete "/cart_items/destroy_all", :to => "cart_items#destroy_all"
     resources :costomers
     get "/unsubscribe", :to => "costomers#unsubscribe"
+    resources :orders
   end
 
 end
