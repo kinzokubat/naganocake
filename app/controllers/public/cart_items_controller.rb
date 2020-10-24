@@ -1,27 +1,35 @@
 class Public::CartItemsController < ApplicationController
 
- def new
-    # Viewへ渡すためのインスタンス変数に空のモデルオブジェクトを生成する。
-    @cart_item = CartItem.new
- end
 
  def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.costomer_id = current_costomer.id
-
     @cart_item.save
     redirect_to  cart_items_path
  end
 
 
   def index
-    @cart_items = CartItem.all
+    @cart_items = current_costomer.cart_items
+    @sum = 0
+    @cart_items.each do |cart_item|
+     @sum += (cart_item.item.price * cart_item.amount * 1.1.round(2)).round
+    end
+  end
+
+
+  def update
   end
 
  def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
     redirect_to cart_items_path
+ end
+
+
+ # カート内商品データ削除(全て)
+ def destroy_all
  end
 
 
