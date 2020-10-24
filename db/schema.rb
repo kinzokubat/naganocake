@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_21_095745) do
+ActiveRecord::Schema.define(version: 2020_10_22_122908) do
 
   create_table "addresses", force: :cascade do |t|
-    t.integer "customer_id"
+    t.integer "costomer_id"
     t.string "postal_code"
     t.string "address"
     t.string "name"

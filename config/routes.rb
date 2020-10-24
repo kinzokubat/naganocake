@@ -36,6 +36,7 @@ devise_for :costomers, controllers: {
 
 
     resources :addresses
+    resources :orders
 
 
     resources :cart_items # カート機能
