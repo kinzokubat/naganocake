@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_24_075549) do
+ActiveRecord::Schema.define(version: 2020_10_25_051703) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "costomer_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_10_24_075549) do
     t.integer "postal_code"
     t.string "address"
     t.integer "telephone_number"
-    t.boolean "is_deleted"
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_costomers_on_email", unique: true

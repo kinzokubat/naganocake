@@ -23,8 +23,8 @@ class Public::CostomersController < ApplicationController
   def withdraw
     #現在ログインしているユーザーを@costomersに格納
     @costomer = current_costomer
-    #updateで登録情報をfalse(退会済み)に変更
-    @costomer.update(is_deleted:false )
+    #updateで登録情報をtrue(退会済み)に変更
+    @costomer.update(is_deleted:true )
     #ログアウトさせる
     reset_session
     #ログイン前のtopページへリダイレクト

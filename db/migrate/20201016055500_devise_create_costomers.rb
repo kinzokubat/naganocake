@@ -39,8 +39,7 @@ class DeviseCreateCostomers < ActiveRecord::Migration[5.2]
      t.string :address
      t.integer :telephone_number
      t.boolean :is_deleted
-
-      t.timestamps null: false
+     t.timestamps null: false
     end
 
     add_index :costomers, :email,                unique: true
