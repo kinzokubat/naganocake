@@ -6,25 +6,27 @@ class Public::OrdersController < ApplicationController
     pp @addresses
     @costomer = current_costomer
   end
-  
+
   def create
     @order = Order.new(order_params)
     @addresses = current_costomer.addresses
     @costomer = current_costomer
-    @genre.save
+    @order.save
       redirect_to orders_path
   end
-  
-  def index 
+
+  def index
+    @orders = Order.all
+    
   end
-  
-  def comfirm 
-  end 
-  
-  def complete 
-  end 
-  
-  def show 
-  end 
-  
+
+  def comfirm
+  end
+
+  def complete
+  end
+
+  def show
+  end
+
 end
