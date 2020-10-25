@@ -7,12 +7,14 @@ class Costomer < ApplicationRecord
 
 
 
+
          
   has_many :cart_items, dependent: :destroy
   has_many :orders
   has_many :addresses, dependent: :destroy
   
   
+
   def full_name
     self.last_name + self.first_name
   end
@@ -20,4 +22,10 @@ class Costomer < ApplicationRecord
   def full_name_kana
     self.last_name_kana + self.first_name_kana
   end
+
+  # 退会ユーザーはログイン出来なくする
+  def active_for_authentication?
+    super && (self.is_deleted == true)
+  end
+
 end
