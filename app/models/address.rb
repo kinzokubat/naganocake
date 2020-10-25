@@ -4,6 +4,12 @@ class Address < ApplicationRecord
   validates :name, presence: true
 
 
+
+  
+  
+  belongs_to :costomer
+  
+
   def street
     self.postal_code + self.address + self.name
   end
