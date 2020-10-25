@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>注文履歴詳細</h1> <br></br>
+      <h2>購入者</h2>
+      <h4><%= @order.name %></h4></br>
+      <h2>配送先</h2>
+      <h4><%= @order.postal_code %></h4>
+      <h4><%= @order.address %></h4>
+      <h4><%= @order.name %></h4></br>
+      <h2>支払方法</h2>
+      <h4><%= @order.payment_method %></h4></br>
+      <h2>注文ステータス</h2>
+      <h4><%= @order.status %></h4> <br></br>
+    </div>
+    <div class="col-xs-8">
+      <table class="table">
+        <thaed>
+          <tr>
+            <th>商品</th>
+            <th>単価(税込)</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>制作ステータス</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thaed>
+        <tbody>
+          <tr>
+            <td><%=%></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-4 col-xs-offset-10">
+      <span><strong>商品合計</strong></span>　<span><%= @order.total_payment - 800 %>円</span><br></br>
+      <span><strong>送料</strong></span>　<span><%= @order.shipping_cost %>円</span><br></br>
+      <span><strong>請求金額合計</strong></span>　<span><%= @order.total_payment %>円</span><br></br>
+    </div>
+  </div>
+</div>
