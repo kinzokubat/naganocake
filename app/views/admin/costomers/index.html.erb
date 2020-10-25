@@ -19,7 +19,7 @@
               <td><%=link_to costomer.full_name, admin_costomer_path(costomer) %></td>
               <td><%= costomer.email %></td>
               <td>
-                <% if costomer.is_deleted == true %>
+                <% if costomer.is_deleted == false %>
                 <p>有効会員</p>
                 <% else %>
                 <p>退会済み</p>
