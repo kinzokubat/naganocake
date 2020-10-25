@@ -19,6 +19,7 @@ devise_for :costomers, controllers: {
     resources :genres
     resources :costomers
     get "/top", :to => "costomers#top"
+    resources :orders
   end
 
   # 会員のモジュール
@@ -34,12 +35,8 @@ devise_for :costomers, controllers: {
     get "/unsubscribe", :to => "costomers#unsubscribe"
     get "/withdraw", :to => "costomers#withdraw"
     resources :orders
-
-
     post "/order/comfirm", :to => "orders#comfirm"
     get "/order/complete", :to => "orders#complete"
-
-
   end
 
 end
