@@ -12,12 +12,14 @@ class Public::OrdersController < ApplicationController
     @addresses = current_costomer.addresses
     @costomer = current_costomer
     @order.save
+
     @cart_items = current_costomer.cart_items
     @cart_items.destroy_all
     redirect_to order_complete_path
   end
 
   def index
+     @orders = Order.all
   end
 
   def comfirm
@@ -50,6 +52,7 @@ class Public::OrdersController < ApplicationController
       @order.postal_code =@address.postal_code
       @order.name = @address.name
     end
+
   end
 
   def complete
@@ -57,6 +60,7 @@ class Public::OrdersController < ApplicationController
 
   def show
   end
+
 
   private
   def order_params
@@ -70,5 +74,6 @@ class Public::OrdersController < ApplicationController
       :status,
       :costomer_id)
   end
+
 
 end
