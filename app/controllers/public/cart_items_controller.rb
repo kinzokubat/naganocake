@@ -30,6 +30,8 @@ class Public::CartItemsController < ApplicationController
 
  # カート内商品データ削除(全て)
  def destroy_all
+  CartItem.destroy_all
+  redirect_to cart_items_path
  end
 
 

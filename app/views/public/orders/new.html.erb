@@ -2,21 +2,21 @@
   <div class="row">
     <div class="col-xs-10 col-xs-offset-2">
       <h1>注文情報入力</h1> <br></br>
-      <%= form_with model: @order, url: orders_path, local:true do |f| %>
-      
-        <%= f.label :支払い方法 %><br>
+      <%= form_with model: @order, url: order_comfirm_path, local:true do |f| %>
+
+        <h3><%= f.label :支払い方法 %></h3><br>
           <label><%= f.radio_button :payment_method, "0" %>クレジットカード</label><br>
           <label><%= f.radio_button :payment_method, "1" %>銀行振込</label> <br></br>
-          
-        <%= f.label :お届け先 %><br>
-        
+
+        <h3><%= f.label :お届け先 %></h3><br>
+
           <label><%=f.radio_button :city, "0" %>ご自身の住所</label><br>
-            <p><%= @costomer.postal_code %><%= @costomer.address %><br>
+
+            <p><%= @costomer.postal_code %>　<%= @costomer.address %><br>
             <%= @costomer.full_name %></p></br>
-            
+
             <label><%=f.radio_button :city, "1" %>登録済住所から選択</label><br>
-            <!--ここに入れる-->
-            
+            <%= f.collection_select :address_id, current_costomer.addresses, :id,:street %> <br></br>
 
             <label><%=f.radio_button :city, "2" %>新しいお届け先</label><br>
               <%= f.label :郵便番号（ハイフンなし） %>
@@ -26,9 +26,8 @@
               <%= f.label :宛名 %>
               <%= f.text_field :name, class: "name" %> <br></br>
           <%= f.submit '確認画面へ進む', class: "btn btn-info active" %>
-          
       <% end %>
-      
+
     </div>
   </div>
 </div>
