@@ -32,8 +32,8 @@ devise_for :costomers, controllers: {
     delete "/cart_items/destroy_all", :to => "cart_items#destroy_all"
     resources :costomers
     get "/unsubscribe", :to => "costomers#unsubscribe"
+    get "/withdraw", :to => "costomers#withdraw"
     resources :orders
-    
   end
 
 end

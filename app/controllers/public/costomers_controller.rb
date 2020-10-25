@@ -14,14 +14,23 @@ class Public::CostomersController < ApplicationController
     costomer.update(costomer_params)
     redirect_to costomer_path(current_costomer.id)
   end
-  
+
   # 顧客の退会確認画面
   def unsubscribe
   end
-  
-  # 顧客の退会処理(ステータスの更新)
-  def withdraw 
-  end 
+
+  # 退会するボタンを押した後の処理
+  def withdraw
+    #現在ログインしているユーザーを@costomersに格納
+    @costomer = current_costomer
+    #updateで登録情報をfalse(退会済み)に変更
+    @costomer.update(is_deleted:false )
+    #ログアウトさせる
+    reset_session
+    #ログイン前のtopページへリダイレクト
+    redirect_to root_path
+  end
+
 
   private
   def costomer_params
