@@ -4,8 +4,12 @@ class Public::CartItemsController < ApplicationController
  def create
     @cart_item = CartItem.new(cart_item_params)
     @cart_item.costomer_id = current_costomer.id
-    @cart_item.save
+   if @cart_item.save
     redirect_to  cart_items_path
+   else
+    @item = Item.find(@cart_item.item_id)
+    render template: 'public/items/show'
+   end
  end
 
 
@@ -13,7 +17,6 @@ class Public::CartItemsController < ApplicationController
     @cart_items = current_costomer.cart_items
     @sum = 0
     @cart_items.each do |cart_item|
-     #byebug
      @sum += (cart_item.item.price * cart_item.amount * 1.1.round(2)).round
     end
   end

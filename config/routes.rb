@@ -20,6 +20,7 @@ devise_for :costomers, controllers: {
     resources :costomers
     get "/top", :to => "costomers#top"
     resources :orders
+    patch "/orders/:order_id/order_details/:id", :to => "order_details#update"
   end
 
   # 会員のモジュール

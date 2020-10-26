@@ -21,7 +21,7 @@
         <p><strong>￥<%= (@item.price * 1.1.round(2)).round %></strong>(税込)</p>
       </div>
       </div>
-
+  <% if costomer_signed_in? %>
     <div class="col-xs-12 col-xs-offset-6">
       <!--カート機能のform-->
       <%= form_with model: @cart_item, url: cart_items_path, local:true do |f| %>
@@ -30,8 +30,9 @@
       <%= f.hidden_field :item_id, :value => @item.id %>
 
       <h4>数量</h4>
-      <%= f.text_field :amount %>
+      <%= f.number_field :amount, min: 1%>
       <%= f.submit 'カートに入れる', class: "btn btn-info active" %>
+      <% end %>
       <% end %>
     </div>
   </div>

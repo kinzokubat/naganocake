@@ -1,7 +1,8 @@
 class Admin::OrdersController < ApplicationController
 
   def index
-    @orders = Order.all
+    @orders = Order.page(params[:page]).reverse_order
+    @sum = 0
   end
 
   def show

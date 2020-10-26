@@ -6,10 +6,9 @@ class Public::ItemsController < ApplicationController
     @genres =Genre.all
    if @genre.nil?
     @items = Item.all
-    else
+   else
     @items = Item.where(genre_id: @genre.id)
-  end
-
+   end
   end
 
   def show

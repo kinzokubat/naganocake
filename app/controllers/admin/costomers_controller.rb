@@ -1,11 +1,11 @@
 class Admin::CostomersController < ApplicationController
 
   def top
-    @orders = Order.all
+    @orders = Order.where("created_at >= ?", Date.today)
   end
 
   def index
-    @costomers = Costomer.all
+    @costomers = Costomer.page(params[:page]).reverse_order
   end
 
   def create
