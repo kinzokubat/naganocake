@@ -1,0 +1,9 @@
+ja:
+  enums:
+    order:
+      status:
+        wait: "入金待ち"
+        pay_confirm: "入金確認"
+        making: "制作中"
+        preparing_to_ship: "発送準備中"
+        complete: "発送済み"
