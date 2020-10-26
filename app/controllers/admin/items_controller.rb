@@ -2,8 +2,7 @@ class Admin::ItemsController < ApplicationController
   # 管理者の商品コントローラ
 
   def index
-    
-    @items = Item.all
+    @items = Item.page(params[:page]).reverse_order
   end
 
   def new

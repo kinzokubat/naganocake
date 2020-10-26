@@ -20,12 +20,19 @@
             <tr>
               <td><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
               <td><%= order.postal_code %><br><%= order.address %><br><%= order.name %></td>
-              <td><%=  %></td>
+
+              <td>
+                <% order.order_details.each do |order_detail| %>
+                <p><%= order_detail.item.name %></p>
+                <% end %>
+              </td>
+
               <td><%= order.total_payment %></td>
               <td><%= order.status_i18n %></td>
               <td><%= link_to '表示する', order_path(order), class: "btn btn-info active" %></td>
            </tr>
            <% end %>
+           <%= paginate @orders %>
         </tbody>
       </table>
     </div>
