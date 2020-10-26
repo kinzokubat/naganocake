@@ -1,7 +1,7 @@
 class Admin::CostomersController < ApplicationController
 
   def top
-    @orders = Order.all
+    @orders = Order.where("created_at >= ?", Date.today)
   end
 
   def index

@@ -11,7 +11,11 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @addresses = current_costomer.addresses
     @costomer = current_costomer
-    @order.save
+
+    if @order.save
+  else
+    render 'new'
+  end
     @cart_items = current_costomer.cart_items
     @cart_items.each do |cart_item|
       order_detail = OrderDetail.new
@@ -21,14 +25,13 @@ class Public::OrdersController < ApplicationController
       order_detail.price = cart_item.item.price
       order_detail.making_status = 0
       order_detail.save
-    end 
+    end
     @cart_items.destroy_all
     redirect_to order_complete_path
   end
 
   def index
-     @orders = Order.page(params[:page]).reverse_order
-     
+    @orders = current_costomer.orders
   end
 
   def comfirm
@@ -38,7 +41,7 @@ class Public::OrdersController < ApplicationController
     @order.shipping_cost = 800
     @order.costomer_id = current_costomer.id
     @order.status = 0
-    
+
     @cart_items = current_costomer.cart_items
     @sum = 0
     @cart_items.each do |cart_item|
