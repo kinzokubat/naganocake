@@ -19,8 +19,16 @@ class Public::CartItemsController < ApplicationController
   end
 
 
-  def update
-  end
+ # <!--追加分-->
+ def update_all
+   @cart_items = current_costomer.cart_items
+   @cart_items.each do |item|
+   item.amount = params[:amount][item.id.to_s].to_i
+   item.save
+   redirect_to cart_items_path
+   end
+ end
+ # <!--追加分-->
 
  def destroy
     cart_item = CartItem.find(params[:id])

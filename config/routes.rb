@@ -30,6 +30,7 @@ devise_for :costomers, controllers: {
     get "/item/about", :to => "items#about"
     resources :addresses # アドレス機能
     resources :cart_items # カート機能
+    patch "/cart_items", :to => 'cart_items#update_all'
     delete "/cart_items", :to => "cart_items#destroy_all", as: "cart_items_destroy_all"
     resources :costomers
     get "/unsubscribe", :to => "costomers#unsubscribe"
