@@ -11,7 +11,11 @@
       <h2>支払方法</h2>
       <h4><%= @order.payment_method %></h4></br>
       <h2>注文ステータス</h2>
-      <h4><%= @order.status %></h4> <br></br>
+      <%= form_with model: @order, url: admin_order_path(@order),local:true do |f| %>
+        <%= f.select :status, Order.statuses_i18n.keys.map{|k| [I18n.t("enums.order.status.#{k}"), k]} %>
+        <%= f.submit '更新' , class: "btn btn-info active"%>
+      <% end %> <br></br>
+
     </div>
     <div class="col-xs-8">
       <table class="table">
@@ -27,20 +31,19 @@
           </tr>
         </thaed>
         <tbody>
+          <% @order_details.each do |order_detail| %>
           <tr>
-            <td><%=%></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><%= order_detail.item.name %></td>
+            <td><%= (order_detail.price * 1.1.round(2)).round %></td>
+            <td><%= order_detail.amount %></td>
+            <td><%= (order_detail.price * order_detail.amount * 1.1.round(2)).round %></td>
           </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
     <div class="col-xs-4 col-xs-offset-10">
-      <span><strong>商品合計</strong></span>　<span><%= @order.total_payment - 800 %>円</span><br></br>
+      <span><strong>商品合計</strong></span>　<span><%= @order.total_payment - @order.shipping_cost %>円</span><br></br>
       <span><strong>送料</strong></span>　<span><%= @order.shipping_cost %>円</span><br></br>
       <span><strong>請求金額合計</strong></span>　<span><%= @order.total_payment %>円</span><br></br>
     </div>
