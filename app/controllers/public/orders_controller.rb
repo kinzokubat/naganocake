@@ -12,7 +12,6 @@ class Public::OrdersController < ApplicationController
     @addresses = current_costomer.addresses
     @costomer = current_costomer
     @order.save
-    
     @cart_items = current_costomer.cart_items
     @cart_items.each do |cart_item|
       order_detail = OrderDetail.new
@@ -20,6 +19,7 @@ class Public::OrdersController < ApplicationController
       order_detail.item_id = cart_item.item.id
       order_detail.amount = cart_item.amount
       order_detail.price = cart_item.item.price
+      order_detail.making_status = 0
       order_detail.save
     end 
     @cart_items.destroy_all
@@ -27,7 +27,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-     @orders = Order.all
+     @orders = Order.page(params[:page]).reverse_order
      
   end
 
