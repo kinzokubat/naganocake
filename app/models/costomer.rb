@@ -25,9 +25,9 @@ class Costomer < ApplicationRecord
 
   # 退会ユーザーはログイン出来なくする
 
- 　def active_for_authentication?
+ def active_for_authentication?
     super && (self.is_deleted == false)
-   end
+  end
 
 
 end
