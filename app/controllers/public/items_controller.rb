@@ -2,8 +2,14 @@ class Public::ItemsController < ApplicationController
   # 会員の商品コントローラ
 
   def index
-    @items = Item.all
+    @genre =Genre.find_by(id: params[:genre])
     @genres =Genre.all
+   if @genre.nil?
+    @items = Item.all
+    else
+    @items = Item.where(genre_id: @genre.id)
+  end
+
   end
 
   def show

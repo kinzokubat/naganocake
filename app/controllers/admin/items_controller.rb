@@ -2,6 +2,7 @@ class Admin::ItemsController < ApplicationController
   # 管理者の商品コントローラ
 
   def index
+    
     @items = Item.all
   end
 
