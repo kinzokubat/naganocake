@@ -6,6 +6,9 @@
         </div>
         <div class="col-xs-12 col-xs-offset-10">
           <%= link_to 'カートを空にする',cart_items_destroy_all_path, method: :delete, class: "btn btn-danger"  %>
+          <!--追加分-->
+          <%= form_for cart_items_path, method: :patch do |f| %>
+          <!--追加分-->
         </div>
         <table class='table'>
         <thead>
@@ -23,7 +26,9 @@
             <tr>
               <td><%= cart_item.item.name %></td>
               <td>￥<%= (cart_item.item.price * 1.1.round(2)).round %></td>
-              <td><%= cart_item.amount %>個</td>
+              <!--追加分-->
+              <td><%= number_field_tag "amount[#{cart_item.id}]", cart_item.amount, in: 1..10 %></td>
+              <!--追加分-->
               <td>￥<%= (cart_item.item.price * cart_item.amount * 1.1.round(2)).round %></td>
               <td><%= link_to '削除', cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger" %><td>
             </tr>
@@ -39,6 +44,10 @@
           <th><%= @sum %>円</th>
         </tr>
         <br></br>
+        <!--追加分-->
+        <%= f.submit 'カート情報更新', class: "btn btn-info active" %>
+        <% end %>
+        <!--追加分-->
         <%= link_to "情報入力に進む",new_order_path, class: "btn btn-info active" %>
       </div>
     </div>
