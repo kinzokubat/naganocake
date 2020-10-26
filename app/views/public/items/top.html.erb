@@ -6,7 +6,7 @@
             <table class='table'>
                 <% @genres.each do |genre| %>
                   <tr>
-                    <th><%= genre.name %></th>
+                    <th><%= link_to genre.name, items_path(genre: genre.id) %></th>
                   </tr>
                 <% end %>
             </table>

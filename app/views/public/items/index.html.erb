@@ -7,7 +7,7 @@
           <table class='table'>
               <% @genres.each do |genre| %>
                 <tr>
-                  <th><%= genre.name %></th>
+                  <th><%= link_to genre.name, items_path(genre: genre.id) %></th>
                 </tr>
               <% end %>
           </table>
@@ -16,7 +16,12 @@
 
     <!--一覧部分-->
     <div class="col-xs-9">
+      <% if  @genre.nil? %>
       <h1>商品一覧</h1>
+      <% else %>
+      <h1><%= @genre.name %>一覧</h1>
+      <% end %>
+      
       <p>(全<%= @items.count %>件)</p> <br></br>
       <table class="table">
         <tbody>

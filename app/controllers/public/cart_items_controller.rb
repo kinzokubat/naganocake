@@ -13,6 +13,7 @@ class Public::CartItemsController < ApplicationController
     @cart_items = current_costomer.cart_items
     @sum = 0
     @cart_items.each do |cart_item|
+     #byebug
      @sum += (cart_item.item.price * cart_item.amount * 1.1.round(2)).round
     end
   end
