@@ -13,9 +13,9 @@ class Public::OrdersController < ApplicationController
     @costomer = current_costomer
 
     if @order.save
-  else
+    else
     render 'new'
-  end
+    end
     @cart_items = current_costomer.cart_items
     @cart_items.each do |cart_item|
       order_detail = OrderDetail.new
@@ -31,7 +31,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_costomer.orders
+    @orders = current_costomer.orders.page(params[:page]).reverse_order
   end
 
   def comfirm
