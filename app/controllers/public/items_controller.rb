@@ -5,9 +5,9 @@ class Public::ItemsController < ApplicationController
     @genre =Genre.find_by(id: params[:genre])
     @genres =Genre.all
    if @genre.nil?
-    @items = Item.all
+    @items = Item.all.page(params[:page]).reverse_order
    else
-    @items = Item.where(genre_id: @genre.id)
+    @items = Item.where(genre_id: @genre.id).page(params[:page]).reverse_order
    end
   end
 
@@ -26,7 +26,7 @@ class Public::ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :introduction, :price, :is_active, :genre_id)
+    params.require(:item).permit(:name, :introduction, :price, :is_active, :genre_id, :image)
   end
 
 

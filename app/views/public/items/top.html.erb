@@ -24,8 +24,13 @@
             <h2>オススメ商品</h2>
             
                 <% @items.each do |item| %>
+
                 <div class="col-md-3">
+             
+
+                    <p><%= attachment_image_tag item, :image, :fill, 60,  60, format: 'jpeg' %></p>
                     <p><%= link_to item.name, item_path(item) %></p>
+
                     <p><%= (item.price * 1.1.round(2)).round %>円</p>
                      </div>
                 <% end %>
