@@ -22,15 +22,18 @@
               </p>
 
             <h2>オススメ商品</h2>
-            <table class='table'>
+            
                 <% @items.each do |item| %>
-                    <tr><%= link_to item.name, item_path(item) %></tr>
+                <div class="col-md-3">
+                    <p><%= link_to item.name, item_path(item) %></p>
                     <p><%= (item.price * 1.1.round(2)).round %>円</p>
+                     </div>
                 <% end %>
-            </table>
             <div class="pull-right">
                 <%= link_to "もっと見る>", items_path , class: "btn btn-info active"%>
             </div>
         </div>
     </div>
 </div>
+
+
