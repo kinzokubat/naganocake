@@ -10,10 +10,12 @@
 
         <h3><%= f.label :お届け先 %></h3><br>
 
+
           <label><%=f.radio_button :city, "自分の住所", {:checked => true} %>ご自身の住所</label><br>
 
             <p><%= @costomer.postal_code %>　<%= @costomer.address %><br>
-            <%= @costomer.full_name %></p></br>
+            <%= @costomer.full_name %></p></label></br>
+
 
             <label><%=f.radio_button :city, "登録した住所" %>登録済住所から選択</label><br>
             <%= f.collection_select :address_id, current_costomer.addresses, :id,:street %> <br></br>
@@ -28,7 +30,7 @@
               <%= f.hidden_field :status, {value: 'wait'} %>
               <%= f.hidden_field :total_payment, :value => @sum + @order.shipping_cost %>
           <%= f.submit '確認画面へ進む', class: "btn btn-info active" %>
-      <% end %>
+      <% end %></label>
 
     </div>
   </div>

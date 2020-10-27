@@ -48,6 +48,7 @@
         </tr>
       </thead>
     </table>
+      <%= link_to "注文履歴一覧を見る", admin_orders_path(costomer: @costomer.id) %>
      <%= link_to "編集する", edit_admin_costomer_path(@costomer.id), class: "btn btn-info active" %>
     </div>
   </div>

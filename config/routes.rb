@@ -32,7 +32,6 @@ devise_for :costomers, controllers: {
     resources :addresses # アドレス機能
     resources :cart_items # カート機能
     # <!--追加分-->
-    patch "/cart_items", :to => 'cart_items#update_all'
     # <!--追加分-->
     delete "/cart_items", :to => "cart_items#destroy_all", as: "cart_items_destroy_all"
     resources :costomers

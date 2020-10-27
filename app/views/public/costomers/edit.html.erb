@@ -2,8 +2,9 @@
   <div class="row">
     <div class="col-xs-10">
       <h1>会員情報編集</h1><br></br>
+      <%= form_with model:@costomer, url: costomer_path(@costomer), local:true do |f| %>
       <table class='table'>
-        <%= form_with model:@costomer, url: costomer_path(@costomer), local:true do |f| %>
+
         <thead>
           <tr>
             <th>氏名</th>
@@ -36,13 +37,12 @@
           </tr>
           <tr>
             <th><%= f.submit "変更を保存する", class: "btn btn-info active" %></th>
-            <% end %>
           </tr>
             <th><%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %></th>
           </tr>
         </thead>
       </table>
-      
+      <% end %>
     </div>
   </div>
 </div>

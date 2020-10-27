@@ -1,8 +1,13 @@
 class Admin::OrdersController < ApplicationController
 
   def index
-    @orders = Order.page(params[:page]).reverse_order
+    @orders = Order.find_by(id: params[:costomer])
     @sum = 0
+    if @orders.nil?
+    @orders = Order.all
+   else
+    @orders = Order.where(costomer_id: @costomer.id)
+   end
   end
 
   def show
