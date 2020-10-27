@@ -5,7 +5,7 @@ class OrderDetail < ApplicationRecord
   enum making_status: {
     unable: 0,
     wait: 1,
-    making: 2,
+    making: 2, #
     complete: 3,
   }
   
