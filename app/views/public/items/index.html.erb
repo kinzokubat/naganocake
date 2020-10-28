@@ -12,6 +12,13 @@
         <li role="presentation"><%= link_to genre.name, items_path(genre: genre.id) %></li>
         <% end %>
     	</ul>
+    </div><br>
+    <div>
+    <%= search_form_for @search, url: items_path do |f| %>
+      <span><%= f.text_field :name_cont ,placeholder: '商品検索' %></span></dt>
+      <span><%= f.submit ("検索") , class: 'search-btn'%></span>
+    <% end %>
+      
     </div>
     <!--一覧部分-->
     <div class="col-xs-12">

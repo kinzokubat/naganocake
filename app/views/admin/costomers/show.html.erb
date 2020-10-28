@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-xs-12">
      <h1><%= @costomer.full_name %>　さんの会員詳細</h1>
-     <table class='table'>
+     <table class="table table-bordered table-hover table-condensed">
       <thead>
-        <tr>
+        <tr class="active">
           <th>顧客ID</th>
           <th><%= @costomer.id %></th>
           <th>
@@ -15,31 +15,31 @@
             <% end %>
           </th>
         </tr>
-        <tr>
+        <tr class="active">
           <th>氏名</th>
           <th><%= @costomer.full_name %></th>
           <th></th>
         </tr>
-        <tr>
+        <tr class="active">
           <th>フリガナ</th>
           <th><%= @costomer.full_name_kana %></th>
           <th></th>
         </tr>
-        <tr>
+        <tr class="active">
           <th>郵便番号</th>
           <th><%= @costomer.postal_code %></th>
           <th></th>
-        <tr>
+        <tr class="active">
           <th>住所</th>
           <th><%= @costomer.address %></th>
           <th></th>
         </tr>
-        <tr>
+        <tr class="active">
           <th>電話番号</th>
           <th><%= @costomer.telephone_number %></th>
           <th></th>
         </tr>
-        <tr>
+        <tr class="active">
           <th>メールアドレス</th>
           <th><%= @costomer.email %></th>
           <th></th>
@@ -48,7 +48,7 @@
         </tr>
       </thead>
     </table>
-      <%= link_to "注文履歴一覧を見る", admin_orders_path(costomer: @costomer.id) %>
+      <%= link_to "注文履歴一覧を見る", admin_orders_path, class: "btn btn-info active" %>
      <%= link_to "編集する", edit_admin_costomer_path(@costomer.id), class: "btn btn-info active" %>
     </div>
   </div>
