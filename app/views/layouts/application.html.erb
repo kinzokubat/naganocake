@@ -18,22 +18,22 @@
           <ul class="nav navbar-nav navbar-right">
             <% if costomer_signed_in? %>
               <li style="color: #fff;" >ようこそ<%= current_costomer.full_name %>さん　　　　　　</li>
-              <li><%= link_to "マイページ", costomer_path(current_costomer.id), class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "マイページ", costomer_path(current_costomer.id), class:"btn btn-default btn-sm " %></li>
               <li><%= link_to "商品一覧", items_path, class:"btn btn-default btn-sm" %></li>
               <% if current_costomer.cart_items.present? %>
-                <li><%= link_to "カート", cart_items_path, class:"btn btn-default btn-sm btn-info"	%></li>
+                <li><%= link_to "カート", cart_items_path, class:"btn btn-default btn-sm btn-primary"	%></li>
               <% else %>
                 <li><%= link_to "カート", cart_items_path, class:"btn btn-default btn-sm"	%></li>
               <% end %>
               <li><%= link_to "ログアウト", destroy_costomer_session_path, method: :delete, class:"btn btn-default btn-sm" %></li>
             <% elsif admin_signed_in? %>
-              <li style="color: #fff;" >おいでやす、管理人さん　　　　　</li>
+              <li style="color: #fff;" >こんにちは、管理人さん　　　　　</li>
               <li><%= link_to "トップ", admin_top_path, class:"btn btn-default btn-sm" %></li>
               <li><%= link_to "商品一覧", admin_items_path, class:"btn btn-default btn-sm" %></li>
               <li><%= link_to "会員一覧", admin_costomers_path, class:"btn btn-default btn-sm"  %></li>
               <li><%= link_to "注文履歴一覧", admin_orders_path, class:"btn btn-default btn-sm" %></li>
               <li><%= link_to "ジャンル一覧", admin_genres_path, class:"btn btn-default btn-sm" %></li>
-              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-default btn-sm" %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class:"btn btn-default btn-sm " %></li>
               <dl class="searchbox">
                 <%= search_form_for @search, url: admin_items_path do |f| %>
                   <span><%= f.text_field :name_cont ,placeholder: '商品検索' %></span></dt>
