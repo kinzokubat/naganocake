@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+
+    <!--ジャンル部分-->
+    <div class="dropdown">
+    	<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+    		ジャンル検索
+    		<span class="caret"></span>
+    	</button>
+    	<ul class="dropdown-menu" role="menu">
+    	  <% @genres.each do |genre| %>
+        <li role="presentation"><%= link_to genre.name, items_path(genre: genre.id) %></li>
+        <% end %>
+    	</ul>
+    </div><br>
+    <div>
+    <%= search_form_for @search, url: items_path do |f| %>
+      <span><%= f.text_field :name_cont ,placeholder: '商品検索' %></span></dt>
+      <span><%= f.submit ("検索") , class: 'search-btn'%></span>
+    <% end %>
+      
+    </div>
+    <!--一覧部分-->
+    <div class="col-xs-12">
+      <% if  @genre.nil? %>
+      <h1>商品一覧</h1>
+      <% else %>
+      <h1><%= @genre.name %>一覧</h1>
+      <% end %>
+
+      <p>(全<%= @items.count %>件)</p> <br></br>
+          <% @items.each do |item| %>
+          <div class="col-lg-4">
+            <p><%= attachment_image_tag item, :image, :fill, 300,  300, format: 'jpeg' %></p>
+            <p><%= link_to item.name, item_path(item)%></p>
+            <p><%= item.price %>円</p></br>
+          </div>
+          <% end %>
+          <%= paginate @items %>
+    </div>
+
+  </div>
+</div>

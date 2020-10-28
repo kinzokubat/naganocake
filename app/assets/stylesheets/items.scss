@@ -1,0 +1,29 @@
+// Place all the styles related to the items controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// .about　{
+//   // width: 1000px;
+//   height: 1000px;
+
+// }
+
+.about{
+  height: 340px;
+  width: 453px;
+  background-image: url(about.jpeg);
+  background-size: auto;
+   background-position: top center;
+}
+
+.about-text {
+  text-align: center;
+}
+// .container {
+//   width: 100%;
+// }
+
+// .row{
+//   // height: 100%;
+//   width: 100%;
+// }
