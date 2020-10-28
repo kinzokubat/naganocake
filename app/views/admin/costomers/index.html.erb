@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-xs-12">
       <h1>会員一覧</h1> <br></br>
-      <table class="table table-hover">
+      <table class="table table-bordered table-hover table-condensed">
         <thead>
-          <tr>
+          <tr class="info">
             <th>会員ID</th>
             <th>氏名</th>
             <th>メールアドレス</th>
@@ -14,7 +14,7 @@
         </thead>
         <tbody>
           <% @costomers.each do |costomer| %>
-            <tr>
+            <tr class="active">
               <td><%= costomer.id %></td>
               <td><%=link_to costomer.full_name, admin_costomer_path(costomer) %></td>
               <td><%= costomer.email %></td>

@@ -13,9 +13,9 @@
       <br></br>
 
 
-      <table class="table">
+      <table class="table table-bordered table-hover table-condensed">
         <thead>
-          <tr>
+          <tr class="active">
             <th>ジャンル</th>
             <th>状態</th>
             <th></th>
@@ -23,7 +23,7 @@
 
         <tbody>
           <% @genres.each do |genre| %>
-            <tr>
+            <tr class="active">
               <td><%= genre.name %></td>
               <td>
                       <% if genre.is_active == true %>

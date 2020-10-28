@@ -4,9 +4,9 @@
       <h1>注文履歴一覧</h1><br></br>
     </div>
     <div class="col-xs-11">
-      <table class="table table-hover">
+      <table class="table table-bordered table-hover table-condensed">
         <thead>
-          <tr>
+          <tr class="active" >
             <th>注文日</th>
             <th>配送先</th>
             <th>注文商品</th>
@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <% @orders.each do |order| %>
-            <tr>
+            <tr class="active">
               <td><%= order.created_at.strftime("%Y/%m/%d %H:%M") %></td>
               <td><%= order.postal_code %><br><%= order.address %><br><%= order.name %></td>
 

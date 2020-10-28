@@ -5,9 +5,9 @@
       <div class="col-xs-12 col-xs-offset-10">
         <%= link_to "商品を追加する", new_admin_item_path	, class: "btn btn-info active" %> <br></br>
       </div>
-      <table class="table table-hover">
+      <table class="table table-bordered table-hover table-condensed">
         <thaed>
-         <tr>
+         <tr class="active">
            <th>商品ID</th>
            <th>商品名</th>
            <th>税抜価格</th>
@@ -17,7 +17,7 @@
         </thaed>
         <tbody>
           <% @search_items.each do |item| %>
-            <tr>
+            <tr class="active">
               <td><%= item.id %></td>
               <td><%= link_to item.name, admin_item_path(item)%></td>
               <td><%= item.price %>円</td>

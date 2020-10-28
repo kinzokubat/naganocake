@@ -18,21 +18,20 @@
 
     </div>
     <div class="col-xs-8">
-      <table class="table">
+      <table class="table table-bordered table-hover table-condensed">
         <thaed>
-          <tr>
+          <tr class="active">
             <th>商品</th>
             <th>単価(税込)</th>
             <th>数量</th>
             <th>小計</th>
             <th>制作ステータス</th>
             <th></th>
-            <th></th>
           </tr>
         </thaed>
         <tbody>
           <% @order_details.each do |order_detail| %>
-          <tr>
+          <tr class="active">
             <td><%= order_detail.item.name %></td>
             <td><%= (order_detail.price * 1.1.round(2)).round %></td>
             <td><%= order_detail.amount %></td>
@@ -49,9 +48,20 @@
       </table>
     </div>
     <div class="col-xs-4 col-xs-offset-10">
-      <span><strong>商品合計</strong></span>　<span><%= @order.total_payment - @order.shipping_cost %>円</span><br></br>
-      <span><strong>送料</strong></span>　<span><%= @order.shipping_cost %>円</span><br></br>
-      <span><strong>請求金額合計</strong></span>　<span><%= @order.total_payment %>円</span><br></br>
+      <table class="table table-bordered table-hover table-condensed">
+        <tr class="active">
+          <td>商品合計</td>
+          <td><%= @order.total_payment - @order.shipping_cost %>円</td>
+        </tr>
+        <tr class="active">
+          <td>送料</td>
+          <td><%= @order.shipping_cost %>円</td>
+        </tr>
+        <tr class="active">
+          <td>請求金額合計</td>
+          <td><%= @order.total_payment %>円</td>
+        </tr>
+      </table>
     </div>
   </div>
 </div>
