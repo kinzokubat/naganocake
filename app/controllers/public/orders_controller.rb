@@ -8,7 +8,6 @@ class Public::OrdersController < ApplicationController
     pp  '================='
     pp @addresses
     @costomer = current_costomer
-    
     @cart_items = current_costomer.cart_items
     @order.shipping_cost = 800
     @sum = 0
@@ -51,7 +50,7 @@ class Public::OrdersController < ApplicationController
       @order.address = @address.address
       @order.postal_code = @address.postal_code
       @order.name = @address.name
-     
+
     end
 
 
